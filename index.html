@@ -2,21 +2,130 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>UPSC & MPSC PYQs</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSC & MPSC PYQs - Ace Exams</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico"> <!-- Add a favicon if you have one -->
 </head>
 <body>
+    <header>
+        <nav>
+            <div class="logo">Ace Exams</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="upsc/">UPSC</a></li>
+                <li><a href="mpsc/">MPSC</a></li>
+                <li><a href="resources/">Resources</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            <button id="dark-mode-toggle">🌙 Dark Mode</button>
+            <div class="hamburger" onclick="toggleMenu()">☰</div>
+        </nav>
+    </header>
 
-<h1>UPSC & MPSC Previous Year Questions</h1>
-<p>One-stop destination for UPSC & MPSC PYQs</p>
+    <main id="home">
+        <section class="hero">
+            <h1>UPSC & MPSC Previous Year Questions</h1>
+            <p>One-stop destination for UPSC & MPSC PYQs. Ace exams, level up life!</p>
+            <button onclick="startQuiz()">Start Daily Challenge</button>
+        </section>
 
-<hr>
+        <section class="dashboard">
+            <h2>Your Prep Dashboard</h2>
+            <div class="cards">
+                <div class="card">
+                    <h3>Progress Tracker</h3>
+                    <p>Completed: 50% of Prelims</p>
+                    <div class="progress-bar"><div style="width: 50%;"></div></div>
+                </div>
+                <div class="card">
+                    <h3>Today's Challenge</h3>
+                    <p>Random PYQ from UPSC Prelims</p>
+                    <button onclick="openQuiz()">Take Quiz</button>
+                </div>
+                <div class="card">
+                    <h3>Trending Topics</h3>
+                    <p>Latest MPSC Rajya Seva Updates</p>
+                    <a href="mpsc/">Explore</a>
+                </div>
+            </div>
+        </section>
 
-<ul>
-    <li><a href="upsc/">UPSC</a></li>
-    <li><a href="mpsc/">MPSC</a></li>
-    <li><a href="resources/">Resources</a></li>
-</ul>
+        <section id="upsc" class="exam-section">
+            <h2>UPSC PYQs</h2>
+            <div class="sub-tabs">
+                <button onclick="showSection('prelims')">Prelims</button>
+                <button onclick="showSection('mains')">Mains</button>
+            </div>
+            <div id="prelims" class="content">
+                <h3>Year-wise Prelims</h3>
+                <select onchange="loadYear(this.value)">
+                    <option>2025</option>
+                    <option>2024</option>
+                    <option>2023</option>
+                </select>
+                <div class="year-content">
+                    <p>Download 2024 Papers: <a href="#">PDF Link</a></p>
+                    <button onclick="openQuiz()">Practice Mode</button>
+                </div>
+            </div>
+            <div id="mains" class="content hidden">
+                <h3>Mains - GS Papers</h3>
+                <p>Year-wise breakdowns. <a href="upsc/">View Full UPSC Section</a></p>
+            </div>
+        </section>
 
+        <section id="mpsc" class="exam-section">
+            <h2>MPSC PYQs</h2>
+            <p>Rajya Seva, Group B/C. <a href="mpsc/">Explore MPSC</a></p>
+        </section>
+
+        <section id="resources" class="exam-section">
+            <h2>Resources</h2>
+            <div class="resource-list">
+                <div class="resource-item">
+                    <h3>Syllabus</h3>
+                    <p>Interactive checklist.</p>
+                    <button onclick="toggleChecklist()">View</button>
+                    <ul id="checklist" class="hidden">
+                        <li><input type="checkbox"> Topic 1</li>
+                        <li><input type="checkbox"> Topic 2</li>
+                    </ul>
+                </div>
+                <div class="resource-item">
+                    <h3>Exam Pattern</h3>
+                    <p>Drag-and-drop diagram.</p>
+                </div>
+                <div class="resource-item">
+                    <h3>Cut-offs</h3>
+                    <p>Charts and predictions.</p>
+                </div>
+            </div>
+            <p><a href="resources/">View All Resources</a></p>
+        </section>
+
+        <section id="about" class="exam-section">
+            <h2>About & Contact</h2>
+            <p>Helping aspirants with PYQs. <a href="mailto:contact@aceexams.com">Email Us</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 Ace Exams. Follow us on <a href="#">Instagram</a> | <a href="#">Discord</a></p>
+    </footer>
+
+    <!-- Quiz Modal -->
+    <div id="quiz-modal" class="modal hidden">
+        <div class="modal-content">
+            <span onclick="closeQuiz()">&times;</span>
+            <h3>Quick PYQ Quiz</h3>
+            <p>Question: What is the capital of India?</p>
+            <button onclick="answer('Delhi')">Delhi</button>
+            <button onclick="answer('Mumbai')">Mumbai</button>
+            <p id="result"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
